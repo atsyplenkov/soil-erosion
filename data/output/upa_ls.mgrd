@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SAGA_METADATA>
+  <DATABASE></DATABASE>
+  <SOURCE></SOURCE>
+  <HISTORY saga-version="7.8.2">
+    <TOOL library="ta_hydrology" id="25" name="LS-Factor, Field Based">
+      <OPTION type="grid_system" id="PARAMETERS_GRID_SYSTEM" name="Grid System">
+        <CELLSIZE>21.508318729641523</CELLSIZE>
+        <XMIN>397823.3916757331</XMIN>
+        <XMAX>452196.421424267</XMAX>
+        <YMIN>5935914.606459364</YMIN>
+        <YMAX>5975511.421240634</YMAX>
+      </OPTION>
+      <OPTION type="choice" id="METHOD" name="LS Calculation" index="1">Desmet &amp; Govers 1996</OPTION>
+      <OPTION type="choice" id="METHOD_SLOPE" name="Type of Slope" index="0">local slope</OPTION>
+      <OPTION type="choice" id="METHOD_AREA" name="Specific Catchment Area" index="1">specific catchment area (contour length dependent on aspect)</OPTION>
+      <OPTION type="boolean" id="STOP_AT_EDGE" name="Stop at Edge">true</OPTION>
+      <OPTION type="double" id="EROSIVITY" name="Rill/Interrill Erosivity">1.000000</OPTION>
+      <OPTION type="choice" id="STABILITY" name="Stability" index="0">stable</OPTION>
+      <INPUT type="grid" id="DEM" name="Elevation" system="PARAMETERS_GRID_SYSTEM">
+        <TOOL library="io_gdal" id="0" name="Import Raster">
+          <OPTION type="file" id="FILES" name="Files">"C:/Users/atsyp/YandexDisk/courses/2023/soil erosion/data/rast/upa_dem.tif"</OPTION>
+          <OPTION type="choice" id="MULTIPLE" name="Multiple Bands Output" index="2">automatic</OPTION>
+          <OPTION type="text" id="SELECTION" name="Select from Multiple Bands"/>
+          <OPTION type="boolean" id="TRANSFORM" name="Transformation">true</OPTION>
+          <OPTION type="choice" id="RESAMPLING" name="Resampling" index="3">B-Spline Interpolation</OPTION>
+          <OPTION type="choice" id="EXTENT" name="Extent" index="0">original</OPTION>
+          <OUTPUT type="grid_list" id="GRIDS" name="Grids">upa_dem</OUTPUT>
+        </TOOL>
+      </INPUT>
+      <OUTPUT type="grid" id="LS_FACTOR" name="LS Factor">LS Factor</OUTPUT>
+    </TOOL>
+  </HISTORY>
+  <FILE></FILE>
+  <DESCRIPTION></DESCRIPTION>
+  <PROJECTION>
+    <OGC_WKT>PROJCS["WGS 84 / UTM zone 37N",GEOGCS["WGS 84",DATUM["World Geodetic System 1984",SPHEROID["WGS 84",6378137,298.257223563]],PRIMEM["Greenwich",0],UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",39],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",0],UNIT["metre",1,AUTHORITY["EPSG","9001"]],AXIS["Easting",EAST],AXIS["Northing",NORTH]]</OGC_WKT>
+    <PROJ4>+proj=utm +zone=37 +datum=WGS84 +units=m +no_defs</PROJ4>
+    <EPSG>-1</EPSG>
+  </PROJECTION>
+</SAGA_METADATA>
